@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import *
 from django.contrib.auth.decorators import login_required
+from .models import Profile,Projects
 
 # Create your views here.
 def home(request):
@@ -78,4 +80,17 @@ def new_project(request):
 
     else:
         form = NewProjectForm()
-    return render(request, 'new-project.html', {"form": form})
+    return render(request, 'new_project.html', {"form": form})
+
+# def post(request):
+#     if request.method == 'POST':
+#         form = UploadForm(request.POST,request.FILES)
+#         print(form.errors)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.user = request.user.profile
+#             post.save()
+#             return redirect('landing')
+#     else:
+#         form = UploadForm()
+#     return render(request,'post_image.html', {"form":form})
