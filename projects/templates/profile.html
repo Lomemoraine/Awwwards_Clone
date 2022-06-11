@@ -11,6 +11,7 @@
                     <div class="mt-5">
                   <h2 class="account-heading">{{ user.username }}</h2>
                   <p class="text-secondary">{{ user.email }}</p>
+                  <button class="btn border mx-3"><a class="text-decoration-none text-dark" href="{% url 'edit_profile'  user.username%}">Edit Profile</a></button>
                 </div>
                 </div>
               </div>
