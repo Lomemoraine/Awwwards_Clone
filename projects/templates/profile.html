@@ -3,12 +3,20 @@
 {% block content %}
     <div class="container_fluid ">
         <div class="row">
-        <div class="col-md-4 "></div>
-        <div class="col-md-4 container1">
-        <h1>{{user.username}}</h1>
+        <div class="col-md-3 "></div>
+        <div class="col-md-6 container1">
+            <div class="media">
+                <img class="rounded-circle account-img mr-3" src="{{ user.profile.picture.url }}">
+                <div class="media-body">
+                    <div class="mt-5">
+                  <h2 class="account-heading">{{ user.username }}</h2>
+                  <p class="text-secondary">{{ user.email }}</p>
+                </div>
+                </div>
+              </div>
         </div>
   
-    <div class="col-md-4 "></div>
+    <div class="col-md-3 "></div>
     </div>
 </div>
     
