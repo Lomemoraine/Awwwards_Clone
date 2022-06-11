@@ -14,24 +14,22 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
           <li class="text-white nav-item">
-            <a class="nav-link" href="#" style="font-size: 20px; font-weight:bold;color:white;">Home</a>
+            <a class="nav-link" href="{% url 'home' %}" style="font-size: 20px; font-weight:bold;color:white;">Home</a>
           </li>
           
         </li>
-        {% if user.is_authenticated %}
-        
-        {% endif %}
+       
       
         </ul>
        
       <!-- Links -->
       
-      {% if user.is_authenticated %}
+     
       <form class="form-inline my-2 my-lg-0 " action="">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" name="" aria-label="Search">
         <button class="btn btn-outline-success " type="submit"style="font-size:20px;color:black;font-weight:bold">Search</button>
       </form>
-          {% endif %}
+         
           <div class="col-sm-6 col-lg-6 d-flex justify-content-end">
               {% if user.is_authenticated %}
               <ul>
@@ -57,8 +55,8 @@
               </ul>
               {% else %}
               <li class="list-unstyled">
-                  <a class='btn btn-sm btn-default font-weight-bold' href="" style="font-size: 15px;">Login</a>
-                  <a class='btn btn-sm btn-default font-weight-bold' href=""style="font-size: 15px;">Register</a>
+                  <a class='btn btn-sm btn-default font-weight-bold' href="{% url 'login' %}" style="font-size: 15px;">Login</a>
+                  <a class='btn btn-sm btn-default font-weight-bold' href="{% url 'register' %}"style="font-size: 15px;">Register</a>
               </li>
 
               {% endif %}
