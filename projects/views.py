@@ -65,3 +65,17 @@ def editProfile(request,username):
         'p_form':p_form
     }
     return render(request, 'edit_profile.html', context)
+
+def new_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.Author = current_user
+            project.save()
+        return redirect('home')
+
+    else:
+        form = NewProjectForm()
+    return render(request, 'new-project.html', {"form": form})
