@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'crispy_bootstrap5',
     'bootstrap4',
+    'django_countries',
     'rest_framework', #new
     'projects.apps.ProjectsConfig',#new
     'crispy_forms',

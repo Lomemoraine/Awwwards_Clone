@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.http import Http404
 from django.db.models import ObjectDoesNotExist
+from django_countries.fields import CountryField
+
 
 # Create your models here.
 class Profile(models.Model):
@@ -20,6 +22,7 @@ class Projects(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     Author = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     author_profile = models.ForeignKey(Profile,on_delete=models.CASCADE, blank=True, default='1')
+    country = CountryField(blank_label='(select country)', default='KE')
     link = models.URLField()
     
     def save_project(self):
