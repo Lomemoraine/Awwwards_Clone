@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from .forms import *
 import datetime as dt
 from django.contrib.auth.decorators import login_required
-from .models import Profile,Projects
+from .models import *
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def home(request):
@@ -98,3 +99,14 @@ def new_project(request):
 #     else:
 #         form = UploadForm()
 #     return render(request,'post_image.html', {"form":form})
+
+def get_project(request, id):
+
+    try:
+        project = Projects.objects.get(pk = id)
+        
+    except ObjectDoesNotExist:
+        raise Http404()
+    
+    
+    return render(request, "projects.html", {"project":project})
