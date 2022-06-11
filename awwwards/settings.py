@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,8 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary',
+    'crispy_bootstrap5',
+    'bootstrap4',
     'rest_framework', #new
     'projects.apps.ProjectsConfig',#new
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +133,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+cloudinary.config(
+    cloud_name = "dcfb3gqzg",
+    api_key ="825938427599163",
+    api_secret ="KFYIt-ZMSDBPjQWaBqNhcNnXVLc"
+)
