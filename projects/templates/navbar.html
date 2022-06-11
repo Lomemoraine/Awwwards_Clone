@@ -1,7 +1,7 @@
-<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="pl-5 pr-5 navbar navbar-expand-lg navbar-light bg-dark sticky-top">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand font-weight-bold title" href="{% url 'home' %}"style="font-size: 30px; font-weight:bold">AWWARDS</a>
+    <a class="navbar-brand font-weight-bold" href="{% url 'home' %}"style="font-size: 20px; font-weight:bold;color:white;">RaineAwwwards</a>
   
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -14,7 +14,7 @@
       <!-- Links -->
       <ul class="navbar-nav mr-auto">
           <li class="text-white nav-item">
-            <a class="nav-link" href="#" style="font-size: 30px; font-weight:bold">Home</a>
+            <a class="nav-link" href="#" style="font-size: 20px; font-weight:bold;color:white;">Home</a>
           </li>
           
         </li>
@@ -27,22 +27,23 @@
       <!-- Links -->
       
       {% if user.is_authenticated %}
-          <form class="form-inline" action="">
-            <div class="md-form my-1">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="keyword">
-            </div>
-          </form>
+      <form class="form-inline my-2 my-lg-0 " action="">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="" aria-label="Search">
+        <button class="btn btn-outline-success " type="submit"style="font-size:20px;color:black;font-weight:bold">Search</button>
+      </form>
           {% endif %}
           <div class="col-sm-6 col-lg-6 d-flex justify-content-end">
               {% if user.is_authenticated %}
-              <ul><li class="nav-item">
-                  <a class="nav-link btn btn-block text-white success-color-dark" href="#">SUBMIT YOUR WEBSITE </a>
-                </li></ul>
+              <ul>
+                  <li class="nav-item">
+                  <a class="nav-link btn btn-block text-white success-color-dark" href="#">ADD YOUR PROJECTS </a>
+                </li>
+            </ul>
               <ul>
                 <li class="dropdown list-unstyled text-white">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user" style="color: black;"></i> My Account </a>
+                    <i class="fas fa-user" style="color: white;"></i> My Account </a>
                   <ul class="dropdown-menu dropdown-default" role="menu">
                     <li>
                         <a class="dropdown-item" href="">Profile</a>
@@ -56,8 +57,8 @@
               </ul>
               {% else %}
               <li class="list-unstyled">
-                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/login" style="font-size: 15px;">Login</a>
-                  <a class='btn btn-sm btn-default font-weight-bold' href="/accounts/register"style="font-size: 15px;">Register</a>
+                  <a class='btn btn-sm btn-default font-weight-bold' href="" style="font-size: 15px;">Login</a>
+                  <a class='btn btn-sm btn-default font-weight-bold' href=""style="font-size: 15px;">Register</a>
               </li>
 
               {% endif %}
