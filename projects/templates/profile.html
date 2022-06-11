@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
     <div class="container_fluid ">
         <div class="row">
         <div class="col-md-4 "></div>
-        
+        <div class="col-md-4 container1">
+        <h1>{{user.username}}</h1>
+        </div>
   
     <div class="col-md-4 "></div>
     </div>
