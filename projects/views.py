@@ -3,13 +3,16 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .forms import *
+import datetime as dt
 from django.contrib.auth.decorators import login_required
 from .models import Profile,Projects
 
 # Create your views here.
 def home(request):
+    date = dt.date.today()
+    projects = Projects.get_projects()
     
-    return render(request,'index.html')
+    return render(request,'index.html',{"date": date, "projects":projects})
 
 
 
@@ -47,6 +50,7 @@ def profile(request, username):
     # }
     
     return render(request, 'profile.html')
+@login_required
 def editProfile(request,username):
     user = User.objects.get(username=username)
     if request.method == "POST":
@@ -67,7 +71,7 @@ def editProfile(request,username):
         'p_form':p_form
     }
     return render(request, 'edit_profile.html', context)
-
+@login_required
 def new_project(request):
     current_user = request.user
     if request.method == 'POST':
