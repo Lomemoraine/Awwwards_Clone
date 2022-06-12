@@ -147,3 +147,14 @@ class ProfileList(generics.ListCreateAPIView):
 class ProjectList(generics.ListCreateAPIView):
     queryset = Projects.objects.all()
     serializer_class = ProjectSerializer
+    
+    def perform_create(self, serializer): # new
+        serializer.save(Author=self.request.user)
+    
+class ProfileSingle(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+    
+class ProjectSingle(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Projects.objects.all()
+    serializer_class = ProjectSerializer
