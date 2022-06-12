@@ -30,6 +30,9 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 @login_required
 def profile(request, username):
+    current_user = request.user
+    Author = current_user
+    projects = Projects.get_by_author(Author)
     #  if request.method == 'POST':
     #     u_form = UserUpdateForm(request.POST, instance=request.user)
     #     p_form = ProfileUpdateForm(request.POST,
@@ -50,7 +53,7 @@ def profile(request, username):
     #     'p_form': p_form
     # }
     
-    return render(request, 'profile.html')
+    return render(request, 'profile.html',{"projects":projects})
 @login_required
 def editProfile(request,username):
     user = User.objects.get(username=username)
