@@ -109,4 +109,4 @@ def get_project(request, id):
         raise Http404()
     
     
-    return render(request, "projects.html", {"project":project})
+    return render(request, "project.html", {"project":project})
