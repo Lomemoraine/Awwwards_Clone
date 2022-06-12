@@ -113,3 +113,15 @@ def get_project(request, id):
     
     
     return render(request, "project.html", {"project":project})
+
+def search_projects(request):
+    if 'keyword' in request.GET and request.GET["keyword"]:
+        search_term = request.GET.get("keyword")
+        searched_projects = Projects.search_projects(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message":message,"projects": searched_projects})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {"message": message})

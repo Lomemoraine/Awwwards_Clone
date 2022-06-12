@@ -19,9 +19,13 @@
         </div>
   
     <div class="col-md-3 "></div>
-    <hr>
-        <h4 class="font-weight-bold">My Projects</h4>
-        <hr>
+    <div class="col-lg-12 pt-5 mt-5">
+
+        <!-- Heading -->
+        <h3 class="font-weight-bold black-text text-center">My projects.</h3>
+
+        <!-- Divider -->
+        <hr class="hr-dark">
         {% if projects %}
         {% for project_item in projects%}
         <a href="/project/{{project_item.id}}"><img src="{{ project_item.project_image.url }}" alt="" class="rounded img-fluid mr-1 pt-1 pb-1" style="width: 300px; height: 300px;"></a>
@@ -30,6 +34,9 @@
         {% else %}
         <p>You have not submitted any projects</p>
         {% endif %}
+       
+    </div>
+    
     </div>
 </div>
     
