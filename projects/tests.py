@@ -24,3 +24,23 @@ class ProjectsTest(TestCase):
         
     def test_instance(self):
         self.assertTrue(isinstance(self.project, Projects))
+        
+    def test_save_project(self):
+        self.project.save_project()
+        project = Projects.objects.all()
+        self.assertTrue(len(project) > 0)
+
+    def test_get_projects(self):
+        self.project.save_project()
+        projects = Projects.all_posts()
+        self.assertTrue(len(projects) > 0)
+
+    def test_search_project(self):
+        self.project.save_project()
+        project = Projects.search_project('test')
+        self.assertTrue(len(project) > 0)
+
+    def test_delete_project(self):
+        self.project.delete_post()
+        project = Projects.search_project('test')
+        self.assertTrue(len(project) < 1)
