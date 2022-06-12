@@ -54,13 +54,13 @@
                     <span class="sc">Average Score</span>
                 </a>
                 <a class="btn btn-outline-success btn-sm" ><h5>{{ rating.design_average }}</h5>
-                    <span class="sc">Design Average</span>
+                    <span class="sc">Design Score</span>
                 </a>
                 <a class="btn btn-outline-primary btn-sm" id="u"><h5>{{ rating.usability_average }}</h5>
-                    <span class="sc">Usability Average</span>
+                    <span class="sc">Usability score</span>
                 </a>
                 <a class="btn btn-outline-danger btn-sm" id="c"><h5>{{ rating.content_average }}</h5>
-                    <span class="sc">Content Average</span>
+                    <span class="sc">Content score</span>
                 </a>
                 {% endif %}
                 {% endfor %}
@@ -88,14 +88,14 @@
 
             <div class="col-lg-6 dark-text"> <small> Date Posted: {{project.pub_date|date:"d /m/Y"}} </small> </div>
           </div>
-          <!-- {{s_start_user}} -->
+          
         </div>
-        <!-- Card content -->
+    
 
       </div>
-      <!-- Card -->
+     
 
-      <!-- Card -->
+      
       <div class="card mt-5 pb-2 mb-2">
 
         <!-- Card footer -->
@@ -113,10 +113,10 @@
       </div>
 
     </div>
-    <!-- Grid column -->
+    
 
   </div>
-  <!-- Grid row -->
+  
 
 </div>
 {% endblock %}

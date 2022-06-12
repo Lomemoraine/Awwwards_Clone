@@ -12,6 +12,12 @@ class Profile(models.Model):
     bio = models.CharField(default="My bio", max_length = 40)
     picture = CloudinaryField('images', default='http://res.cloudinary.com/dim8pysls/image/upload/v1639001486/x3mgnqmbi73lten4ewzv.png')
     
+    def save_profile(self):
+        self.save()
+        
+    def delete_profile(self):
+        self.delete()
+    
     def __str__(self):
         return f'{self.user.username} Profile'
     
