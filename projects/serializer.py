@@ -3,11 +3,11 @@ from .models import *
 
 class ProfileSerializer(serializers.ModelSerializer):
     
-    projects = serializers.PrimaryKeyRelatedField(
-        many=True, queryset=Projects.objects.all())
+    # projects = serializers.PrimaryKeyRelatedField(
+    #     many=True, queryset=Projects.objects.all())
     class Meta:
         model = Profile
-        fields = ('user', 'bio', 'picture','projects')
+        fields = ('user', 'bio', 'picture')
         
 class ProjectSerializer(serializers.ModelSerializer):
     Author = serializers.ReadOnlyField(source='Author.username') # new
