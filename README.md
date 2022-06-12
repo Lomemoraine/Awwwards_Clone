@@ -1,4 +1,4 @@
-### My-Instagram
+### Awwwards_Clone
 #### Description
 An application that mimics Awwwards app where a user can post their projetcs and get them reviewed by their peers.
 
