@@ -44,3 +44,22 @@ class ProjectsTest(TestCase):
         self.project.delete_post()
         project = Projects.search_project('test')
         self.assertTrue(len(project) < 1)
+class RatingTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(id=1, username='raine')
+        self.project = Projects.objects.create(id=1, title='test post', photo='https://ucarecdn.com/0ccf61ff-508e-46c6-b713-db51daa6626e', description='desc',
+                                        user=self.user, url='http://ur.coml')
+        self.rating = Rating.objects.create(id=1, design=6, usability=7, content=9, user=self.user, project=self.project)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.rating, Rating))
+
+    def test_save_rating(self):
+        self.rating.save_rating()
+        rating = Rating.objects.all()
+        self.assertTrue(len(rating) > 0)
+
+    def test_get_project_rating(self, id):
+        self.rating.save()
+        rating = Rating.get_ratings(post_id=id)
+        self.assertTrue(len(rating) == 1)
