@@ -99,5 +99,5 @@ class Rating(models.Model):
         return ratings
 
     def __str__(self):
-        return f'{self.post} Rating'
+        return f'{self.project} Rating'
     
