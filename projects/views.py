@@ -8,6 +8,8 @@ import datetime as dt
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.core.exceptions import ObjectDoesNotExist
+from rest_framework import generics
+from .serializer import ProfileSerializer
 
 # Create your views here.
 def home(request):
@@ -137,3 +139,7 @@ def search_projects(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
+    
+class ProfileList(generics.ListCreateAPIView):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
